@@ -1,10 +1,3 @@
-@font-face {
-  font-family: "Cafe24Simplehae";
-  font-style: normal;
-  font-weight: 500;
-  src: url(/assets/fonts/Cafe24Simplehae.ttf);
-  src: url(/assets/fonts/Cafe24Simplehae.ttf) format("truetype"), url(/assets/fonts/Cafe24Simplehae.otf) format("opentype");
-}
 * {
   padding: 0;
   margin: 0;
@@ -12,7 +5,7 @@
   text-decoration: none;
   -webkit-box-sizing: border-box;
           box-sizing: border-box;
-  font-family: "Shadows Into Light", cursive;
+  font-family: "Gothic A1", sans-serif;
   word-break: keep-all;
   word-wrap: break-word;
   box-sizing: border-box;
@@ -32,30 +25,6 @@
   .mobile_none {
     display: none;
   }
-}
-
-.fontBasic14 {
-  font-family: "Cafe24Simplehae", cursive;
-  font-size: 16px;
-  line-height: 100%;
-  font-weight: 500;
-  color: black;
-}
-
-.fontBasic21 {
-  font-family: "Cafe24Simplehae", cursive;
-  font-size: 21px;
-  line-height: 135%;
-  font-weight: 500;
-  color: white;
-}
-
-.fontBasic30 {
-  font-family: "Cafe24Simplehae", cursive;
-  font-size: 30px;
-  line-height: 135%;
-  font-weight: 500;
-  color: white;
 }
 
 .center {
@@ -225,7 +194,6 @@ section {
   width: 100%;
   padding-bottom: 100%;
   position: absolute;
-  border: 1px solid red;
 }
 .inner_section .item_wrap .drag_items {
   width: 70%;
