@@ -1,12 +1,10 @@
-//100vh 브라우저 환경 커버하기
 let vh = window.innerHeight * 0.01;
 document.documentElement.style.setProperty('--vh', `${vh}px`);
 
-// resize
 window.addEventListener('resize', () => {
     let vh = window.innerHeight * 0.01;
     document.documentElement.style.setProperty('--vh', `${vh}px`);
-})
+});
 
 const areaWrap = document.querySelector('.inner_section');
 const area = areaWrap.offsetWidth;
@@ -22,17 +20,16 @@ const randomImg = () => {
 randomImg();
 
 let count = 0;
-
 const shyText = document.querySelector('.text');
 
 const shy = (finalTop, finalLeft) => {
-    if(0 > finalTop || finalTop > area || 0 > finalLeft || finalLeft > area){
+    if (0 > finalTop || finalTop > area || 0 > finalLeft || finalLeft > area) {
         count++;
 
-        if(8 > count){
+        if (8 > count) {
             const opacity = count * 0.14;
             brush.style.opacity = `${opacity}`
-        }else{
+        } else {
             shyText.style.display = 'block';
         }
     }
@@ -43,25 +40,27 @@ const draggable = ($target) => {
         prevPosX = 0,
         prevPosY = 0;
 
-    $target.addEventListener('mousedown', start);
-    window.addEventListener('mouseup', end);
+    $target.addEventListener('touchstart', start);
+    window.addEventListener('touchend', end);
 
     function start(e) {
-        prevPosX = e.clientX;
-        prevPosY = e.clientY;
+        const touch = e.touches[0];
+        prevPosX = touch.clientX;
+        prevPosY = touch.clientY;
         isPress = true;
 
-        window.addEventListener('mousemove', move); // 드래그 시작 시 이벤트 핸들러 등록
+        window.addEventListener('touchmove', move);
     }
 
     function move(e) {
         if (!isPress) return;
 
-        const posX = prevPosX - e.clientX;
-        const posY = prevPosY - e.clientY;
+        const touch = e.touches[0];
+        const posX = prevPosX - touch.clientX;
+        const posY = prevPosY - touch.clientY;
 
-        prevPosX = e.clientX;
-        prevPosY = e.clientY;
+        prevPosX = touch.clientX;
+        prevPosY = touch.clientY;
 
         $target.style.left = ($target.offsetLeft - posX) + "px";
         $target.style.top = ($target.offsetTop - posY) + "px";
@@ -71,15 +70,13 @@ const draggable = ($target) => {
         if (isPress) {
             isPress = false;
 
-            // 드래그 종료 시 이벤트 핸들러 제거
-            window.removeEventListener('mousemove', move);
+            window.removeEventListener('touchmove', move);
 
-            // 드래그 앤 드롭이 끝났을 때 위치 값을 얻음
             const finalTop = $target.offsetTop;
             const finalLeft = $target.offsetLeft;
             console.log(`Final top: ${finalTop}px, Final left: ${finalLeft}px`);
 
-            shy(finalTop,finalLeft);
+            shy(finalTop, finalLeft);
         }
     }
 }
