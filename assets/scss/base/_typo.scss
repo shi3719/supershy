@@ -1,39 +1,3 @@
-@mixin fontBasic14 {
-    font-family:'Cafe24Simplehae', cursive;
-    font-size: 16px;
-    line-height: 100%;
-    font-weight: 500;
-    color: black;
-}
-
-.fontBasic14{
-    @include fontBasic14;
-}
-
-@mixin fontBasic21 {
-    font-family:'Cafe24Simplehae', cursive;
-    font-size: 21px;
-    line-height: 135%;
-    font-weight: 500;
-    color: white;
-}
-
-.fontBasic21{
-    @include fontBasic21;
-}
-
-@mixin fontBasic30 {
-    font-family:'Cafe24Simplehae', cursive;
-    font-size: 30px;
-    line-height: 135%;
-    font-weight: 500;
-    color: white;
-}
-
-.fontBasic30{
-    @include fontBasic30;
-}
-
 .center{
     text-align: center;
 }
